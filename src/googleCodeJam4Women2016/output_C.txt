@@ -1,0 +1,15 @@
+Case #1: 5
+Case #2: 34
+Case #3: 3
+Case #4: 1
+Case #5: 2
+Case #6: 89
+Case #7: 144
+Case #8: 610
+Case #9: 377
+Case #10: 21
+Case #11: 55
+Case #12: 13
+Case #13: 987
+Case #14: 8
+Case #15: 233
