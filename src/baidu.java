@@ -1,10 +1,17 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Scanner;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 public class baidu {
    public static String aphabet2num(String a, String b){
 	   StringBuilder s = new StringBuilder("");
+	   Object o = new Object();
+	   HashMap<String,String> hm = new HashMap<String, String>();
 	   
+	   ConcurrentHashMap<String, ArrayList<Integer>> chm = new ConcurrentHashMap<String, ArrayList<Integer>>();
 	   char[] x = a.toCharArray();
 	   int l = x.length;
 	   int col = 0;
