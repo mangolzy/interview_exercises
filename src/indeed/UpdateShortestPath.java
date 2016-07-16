@@ -2,6 +2,9 @@ package indeed;
 
 import java.util.Scanner;
 
+
+//   两种思路： 我， 每次查询先返回邻接矩阵对应的值， 并更新邻接矩阵 里面记录的是i->j的最短路径
+//            小卫，邻接矩阵只记录链接关系，每次查询增加一个连通量 或者 通过现有链接情况返回最短路径
 public class UpdateShortestPath {
 /*
 	public static int shortestPath(int[][] graph, int s, int d){
@@ -10,8 +13,9 @@ public class UpdateShortestPath {
 	}
 	*/
 	int[][] graph;
-	public static void updateGraph(int[][] graph,int s, int d ){
-int mincost = Integer.MAX_VALUE;
+	public static int calculate(int[][] graph,int s, int d ){
+		
+		int mincost = Integer.MAX_VALUE;
     	
 		int n = graph.length;
     	int l = 0;
@@ -20,7 +24,10 @@ int mincost = Integer.MAX_VALUE;
     	int[] dis = new int[n];
     	int[] visited = new int[n];
     	for(int i = 0; i < n; i ++)
-    		dis[i] = graph[s][i];
+    		if(graph[s][i] == 1)
+    			dis[i] = graph[s][i];
+    		else 
+    			dis[i] = Integer.MAX_VALUE;
     	
     	//initiation:
     	visited[s] = 1;
@@ -53,7 +60,8 @@ int mincost = Integer.MAX_VALUE;
     		}
     		
     	}
-    	graph[s][d] = dis[d];
+    	//graph[s][d] = dis[d];
+    	return dis[d];
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -63,25 +71,25 @@ int mincost = Integer.MAX_VALUE;
 			int m = in.nextInt();
 			int n = in.nextInt();
 			main.graph = new int[m][m];
-			int x = 1;
+			//int x = 1;
 			int i, j;
 			for(i = 0; i < m-1; i ++){
-				x = 1;
-				for(j = i+1; j < m; j++)
-				{
-					main.graph[i][j] = x;
-					x++;
-				}
+				//x = 1;
+				//for(j = i+1; j < m; j++)
+				//{
+					main.graph[i][i+1] = 1;
+					//x++;
+			//	}
 			}
 				
 			for(int k = 0; k < n; k ++){
 				int s = in.nextInt();
 				int d = in.nextInt();
-				int dis = main.graph[s-1][d-1];//shortestPath(graph, s, p);
-				if(dis == 0){
+				int dis = calculate(main.graph, s, d);// main.graph[s-1][d-1];//shortestPath(graph, s, p);
+				if(dis == Integer.MAX_VALUE){
 					System.out.println(-1);
 					main.graph[s-1][d-1] = 1;
-					updateGraph(main.graph, s-1, d-1);
+					//updateGraph(main.graph, s-1, d-1);
 				}
 				else
 					System.out.println(dis);
