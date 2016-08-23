@@ -24,9 +24,9 @@ public class Robot {
 
     public static void main(String []args)throws IOException{
       
-    	List<String> a = new LinkedList<String>();
-        Collections.sort(a);
-        Window.getWindows();
+    	//List<String> a = new LinkedList<String>();
+        //Collections.sort(a);
+        //Window.getWindows();
         //Bag bg = new Bag();
         //Insertion.sort();
         
