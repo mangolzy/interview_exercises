@@ -30,7 +30,7 @@ public class LongestParlindromeSubstring {
 			return null;
 	}
 	
-	// n^2 space & n^2 time complexity : dynamic programming
+	// n^2 space & n^2 time complexity : dynamic programming; also use the expending philosophy
 	public String dpLPS(String s){
 		int len = s.length();
 		int[][] dp = new int[len][len];
